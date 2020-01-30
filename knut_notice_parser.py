@@ -3,7 +3,6 @@ import requests
 from bs4 import BeautifulSoup
 import telegram
 import secret
-import time
 
 bot = telegram.Bot(token=secret.TELEGRAM_TOKEN)
 chat_id = secret.TELEGRAM_CHAT_ID
@@ -62,5 +61,4 @@ def getNotice():
                     print(e)
 
 if __name__ == "__main__":
-    start_time = time.time()
     getNotice()
