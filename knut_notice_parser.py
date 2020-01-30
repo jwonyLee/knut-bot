@@ -14,7 +14,7 @@ cur = conn.cursor()
 
 # get Board title, id
 def getBoardInfo():
-    searchBBS_query = 'select title, bbs_id from knut_bbs;'
+    searchBBS_query = 'select title, bbs_id from knut_bbs where category =  \'%s\' or category = \'%s\';' % ('공지사항', '학사정보')
     cur.execute(searchBBS_query)
     searchBBS_result = cur.fetchall()
     return searchBBS_result
