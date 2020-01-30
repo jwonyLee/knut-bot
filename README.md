@@ -1,6 +1,34 @@
 # knut-bot
 텔레그램 봇
 
+## Requirements
+- Python3
+- PostgreSQL
+- secret.py
+	```Python3
+	TELEGRAM_TOKEN = 'Your Telegram Bot Token'
+	TELEGRAM_CHAT_ID = 'Your Telegram Channel ID or Telegram ID to send notice message'
+	
+	DB_SETUP = "host='Your Database Server IP dbname='Your Database Name' user='Database User Id' password='Database User Password'"
+	```
+
+## Build
+```
+git clone https://github.com/github-id/knut-bot
+
+cd knut-bot
+
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+```
+❗ Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-he14psys/psycopg2/
+
+
+💡 sudo apt-get install postgresql python-psycopg2 libpq-dev
+```
+
 ## Database
 - PostgreSQL 11
 
