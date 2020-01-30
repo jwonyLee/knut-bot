@@ -1,5 +1,12 @@
 # knut-bot
-텔레그램 봇
+[한국교통대학교](https://ut.ac.kr) 새 글 알림봇(텔레그램)  
+[텔레그램 채널](https://t.me/knut_notice)
+
+현재 지원하는 게시판
+- 학사안내
+- 일반소식
+- 장학안내
+- 행사안내
 
 ## Requirements
 - Python3
