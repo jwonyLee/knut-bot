@@ -52,8 +52,8 @@ def getNotice():
             # 데이터베이스에 중복된 게시글이 없다면 데이터베이스에 저장 후 텔레그램 채널로 메시지 전송
             if getArticle(article_title):
                 try:
-                    insert_query = 'insert into knut_article values (default , %s,%s,%s) ON CONFLICT(title) DO NOTHING;'
-                    cur.execute(insert_query, (bbs_title, article_title, link))
+                    insert_query = 'insert into knut_article values (default , %s,%s,%s,%s) ON CONFLICT(title) DO NOTHING;'
+                    cur.execute(insert_query, (bbs_title, article_title, link, article_id))
                     conn.commit()
                     message = '[' + bbs_title + '] ' + article_title + '\n' + link
                     bot.sendMessage(chat_id=chat_id, text=message)
