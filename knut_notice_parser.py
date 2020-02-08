@@ -19,8 +19,8 @@ def getBoardInfo():
     searchBBS_result = cur.fetchall()
     return searchBBS_result
 
-def getArticle(article_title):
-    search_query = 'select count(title) from knut_article where title = \'%s\';' % article_title
+def getArticle(article_id):
+    search_query = 'select count(article_id) from article where article_id = \'%s\';' % article_id
     cur.execute(search_query)
 
     result = cur.fetchone()[0]
@@ -50,10 +50,10 @@ def getNotice():
             link = 'https://www.ut.ac.kr/cop/bbs/BBSMSTR_' + bbs_id + '/selectBoardArticle.do?nttId=' + article_id
 
             # 데이터베이스에 중복된 게시글이 없다면 데이터베이스에 저장 후 텔레그램 채널로 메시지 전송
-            if getArticle(article_title):
+            if getArticle(article_id):
                 try:
-                    insert_query = 'insert into knut_article values (default , %s,%s,%s,%s) ON CONFLICT(title) DO NOTHING;'
-                    cur.execute(insert_query, (bbs_title, article_title, link, article_id))
+                    insert_query = 'insert into article values (default , %s,%s,%s,%s) ON CONFLICT(article_id) DO NOTHING;'
+                    cur.execute(insert_query, (bbs_id, article_title, link, article_id))
                     conn.commit()
                     message = '[' + bbs_title + '] ' + article_title + '\n' + link
                     bot.sendMessage(chat_id=chat_id, text=message)
